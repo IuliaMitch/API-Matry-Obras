@@ -35,6 +35,13 @@ const Obras = [
     foto: "./assets/img/suicide.jpg",
     nome: "SSS-Class Suicide Hunter",
     nota: 4.7,
+  },
+  {
+    id: 5,
+    sinopse: 'O mestre espião de codinome "Twilight" passou seus dias em missões secretas, tudo pelo sonho de um mundo melhor. Mas um dia, ele recebe uma nova ordem particularmente difícil da central de comando. Para sua missão, ele deve formar uma família temporária e começar uma nova vida?! Uma espionagem / ação / comédia sobre uma família única!',
+    foto: "./assets/img/twilight.jpg",
+    nome: "Spy x Family",
+    nota: 5,
   }
 ];
 
