@@ -1,0 +1,308 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Okina Toshokan",
+        "description": "API para CRUD de obras japonesas e carrinho de compras",
+        "termsOfService": "",
+        "contact": {
+            "email": "noipasz@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [{
+            "url": "http://localhost:3000/obras",
+            "description": "API de teste"
+        },
+        {
+            "url": "https   ://api-okina-toshokan.herokuapp.com/obras",
+            "description": "API de produção"
+        }
+    ],
+    "paths": {
+        "/all-obras": {
+            "get": {
+                "summary": "Lista de todas as obras",
+                "description": "Rota responsável por listar todas as obras",
+                "tags": ["Obras"],
+                "responses": {
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Obras"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/one-obra/{id}": {
+            "get": {
+                "summary": "Busca uma obra pelo ID",
+                "description": "Rota responsável por listar uma obra pelo ID",
+                "tags": ["Obras"],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "Id da obra para busca",
+                    "required": true
+                }],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Obras"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/create-obra": {
+            "post": {
+                "summary": "Cadastrar uma obra",
+                "description": "Rota responsável por cadastrar uma obra",
+                "tags": ["Obras"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Obras"
+
+                            },
+                            "examples": {
+                                "Obras": {
+                                    "value": {
+                                        "sinopse": "Ela costumava ser um assalariado em um escritório de elite do Japão mas renasceu como uma garotinha por causa de um deus colérico. Seu nome é Tanya Degurechov e, priorizando a otimização e o avanço acima de tudo, ela se tornará a entidade mais perigosa dentre os feiticeiros do Exército Imperial.",
+                                        "foto": "./assets/img/tanya.jpg",
+                                        "nome": "Youjo Senki",
+                                        "nota": 5
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Obras"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/update-obra/{id}": {
+            "put": {
+                "summary": "Editar uma obra pelo ID",
+                "description": "Rota responsável por editar uma obra pelo ID",
+                "tags": ["Obras"],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "Id da obra para busca",
+                    "required": true
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schemas": {
+                                "$ref": "#/components/schemas/Obras"
+                            },
+                            "examples": {
+                                "Obras": {
+                                    "value": {
+                                        "sinopse": "Ela costumava ser um assalariado em um escritório de elite do Japão mas renasceu como uma garotinha por causa de um deus colérico. Seu nome é Tanya Degurechov e, priorizando a otimização e o avanço acima de tudo, ela se tornará a entidade mais perigosa dentre os feiticeiros do Exército Imperial.",
+                                        "foto": "./assets/img/tanya.jpg",
+                                        "nome": "Youjo Senki Editado",
+                                        "nota": 3
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schemas": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Obras"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/delete-obra/{id}": {
+            "delete": {
+                "summary": "Apagar uma obra pelo ID",
+                "description": "Rota responsável por deletar uma obra pelo ID",
+                "tags": ["Obras"],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "Id da Obra para deleção",
+                    "required": true
+                }],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/all-cart": {
+            "get": {
+                "summary": "Lista de todos os itens do carrinho",
+                "description": "Rota responsável por listar todos os itens do carrinho",
+                "tags": ["Cart"],
+                "responses": {
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schemas": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cart"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/create-cart": {
+            "post": {
+                "summary": "Cadastrar vários itens no carrinho",
+                "description": "Rota responsável por cadastrar vários itens no carrinho",
+                "tags": ["Cart"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schemas": {
+                                "$ref": "#/components/schemas/Cart"
+                            },
+                            "examples": {
+                                "Cart": {
+                                    "value": [{
+                                            "obraId": "625f2080528b05fe8cb2154a",
+                                            "quantidade": 5
+                                        },
+                                        {
+                                            "obraId": "625f2080528b05fe8cb2154b",
+                                            "quantidade": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schemas": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cart"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/finish-cart": {
+            "delete": {
+                "summary": "Apagar todos os itens do carrinho",
+                "description": "Rota responsável por apagar todos os itens do carrinho",
+                "tags": ["Cart"],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Obras": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "sinopse": {
+                        "type": "string"
+                    },
+                    "foto": {
+                        "type": "string"
+                    },
+                    "nota": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Cart": {
+                "type": "object",
+                "properties": {
+                    "obraId": {
+                        "type": "string"
+                    },
+                    "quantidade": {
+                        "type": "number"
+                    }
+                }
+            }
+        }
+    }
+}

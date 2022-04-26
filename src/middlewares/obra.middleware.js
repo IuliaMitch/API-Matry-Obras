@@ -11,11 +11,9 @@ const validId = (req, res, next) => {
 
 const validObjectBody = (req, res, next) => {
   const obra = req.body;
+  console.log(obra)
   if (!obra || !obra.nota || !obra.nome || !obra.sinopse || !obra.foto) {
     return res.status(400).send({ message: "Envie todos os campos!" });
-  }
-  if (obra.nota > 5 || obra.nota < 1) {
-    return res.status(400).send({message: "Envie uma nota válida"})
   }
 
   next();
