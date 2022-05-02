@@ -10,11 +10,11 @@
         "version": "1.0.0"
     },
     "servers": [{
-            "url": "http://localhost:3000/obras",
+            "url": "http://localhost:4000/obras",
             "description": "API de teste"
         },
         {
-            "url": "https   ://api-okina-toshokan.herokuapp.com/obras",
+            "url": "https://api-okina-toshokan.herokuapp.com/obras",
             "description": "API de produção"
         }
     ],

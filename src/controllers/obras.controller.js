@@ -20,7 +20,7 @@ const findByIdObraController = async (req, res) => {
 
 const createObraController = async (req, res) => {
   const obra = req.body;
-  
+
   const newObra = await obrasService.createObraService(obra);
   res.status(201).send(newObra);
 };
@@ -39,8 +39,7 @@ const updateByIdObraController = async (req, res) => {
 const deleteByIdObraController = async (req, res) => {
   const paramsId = req.params.id;
   await obrasService.deleteObraService(paramsId);
-  res
-    .send({ message: "Obra deletada com sucesso!" })
+  res.send({ message: "Obra deletada com sucesso!" });
 };
 
 module.exports = {

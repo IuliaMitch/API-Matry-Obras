@@ -14,8 +14,8 @@ const createManyItemsCartController = async (req, res) => {
   res.status(201).send(newCart);
 };
 const deleteAllItemsCartController = async (req, res) => {
-    await cartService.deleteAllItemsCartService();
-    res.status(200).send({message: "Carrinhos deletados com sucesso!"})
+  await cartService.deleteAllItemsCartService();
+  res.status(200).send({ message: "Carrinhos deletados com sucesso!" });
 };
 
 module.exports = {

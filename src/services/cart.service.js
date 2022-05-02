@@ -1,26 +1,19 @@
-const Cart = require("../model/Cart")
-
+const Cart = require("../model/Cart");
 
 findAllCartService = async () => {
-    const allCarts = await Cart.find()
-    return allCarts
-
-}
+  const allCarts = await Cart.find();
+  return allCarts;
+};
 createManyItemsCartService = async (newCart) => {
-    const createdCart = await Cart.insertMany(newCart)
-    return createdCart
-
-
-}
+  const createdCart = await Cart.insertMany(newCart);
+  return createdCart;
+};
 deleteAllItemsCartService = async () => {
-    return await Cart.deleteMany();
-
-}
-
-
+  return await Cart.deleteMany();
+};
 
 module.exports = {
-    findAllCartService,
-    createManyItemsCartService,
-    deleteAllItemsCartService
-}
+  findAllCartService,
+  createManyItemsCartService,
+  deleteAllItemsCartService,
+};

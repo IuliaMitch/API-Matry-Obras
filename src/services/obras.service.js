@@ -41,34 +41,30 @@
 //   },
 // ];
 
-
-
-const Obra = require('../model/Obra')
-
-
+const Obra = require("../model/Obra");
 
 const findAllObrasService = async () => {
   const allObras = await Obra.find();
-  return allObras
+  return allObras;
 };
 
 const findByIdObraService = async (paramsId) => {
-  const oneObra = await Obra.findById(paramsId)
-  return oneObra
+  const oneObra = await Obra.findById(paramsId);
+  return oneObra;
 };
 
 const createObraService = async (newObra) => {
-  const createdObra = await Obra.create(newObra)
+  const createdObra = await Obra.create(newObra);
   return createdObra;
 };
 
 const updateByIdObraService = async (paramsId, obraEdited) => {
-  const updateObra = await Obra.findByIdAndUpdate(paramsId, obraEdited)
+  const updateObra = await Obra.findByIdAndUpdate(paramsId, obraEdited);
   return updateObra;
 };
 
 const deleteObraService = async (paramsId) => {
-   return await Obra.findByIdAndDelete(paramsId)
+  return await Obra.findByIdAndDelete(paramsId);
 };
 
 module.exports = {
