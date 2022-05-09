@@ -14,7 +14,7 @@
             "description": "API de teste"
         },
         {
-            "url": "https://api-okina-toshokan.herokuapp.com/obras",
+            "url": "https://api-toshokan.onrender.com/obras",
             "description": "API de produção"
         }
     ],
