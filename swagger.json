@@ -14,7 +14,7 @@
             "description": "API de teste"
         },
         {
-            "url": "https://api-toshokan.onrender.com/obras",
+            "url": "https://b-okina-toshokan.onrender.com/obras",
             "description": "API de produção"
         }
     ],

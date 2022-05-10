@@ -9,7 +9,7 @@ const { validId, validObjectBody } = require("../middlewares/obra.middleware");
 // Rotas Swagger
 
 router.use("/api-docs", swaggerUi.serve);
-router.get("/api-docs", swaggerUi.setup(swaggerDocument));
+router.get("/api-docs",  swaggerUi.setup(swaggerDocument));
 
 // Rotas do website
 router.get("/all-obras", controllerObras.findAllObrasController);
